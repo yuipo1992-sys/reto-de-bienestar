@@ -68,7 +68,7 @@ La administración no muestra secciones adicionales. Los operadores de la base d
 
 ## Logo y accesibilidad
 
-El componente `Brand` en `src/components/ui.tsx` contiene el placeholder “Logo institucional”. Sustituirlo por el logo autorizado dentro de `public/`; no se inventó un logo. El favicon es una letra B genérica de la aplicación.
+El componente `Brand` en `src/components/ui.tsx` usa el logo oficial suministrado por el usuario, guardado en `public/logo-institucional.png`, conservando sus proporciones y colores. El favicon es una letra B genérica de la aplicación.
 
 Diseño móvil, campos de 16px, etiquetas, foco visible, estados con texto e iconos, diálogo nativo con captura de foco y Escape, y respeto por movimiento reducido. Bingo: tres columnas en escritorio, dos en móvil y una en pantallas muy estrechas.
 

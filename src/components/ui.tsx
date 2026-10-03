@@ -1,7 +1,8 @@
 'use client';
 import { useEffect, useRef, type ReactNode } from 'react';
 import { Heart, X, LockKeyhole, CircleCheck, LockKeyholeOpen, LoaderCircle } from 'lucide-react';
-export function Brand(){return <a href="/" className="brand"><span className="logo-placeholder">Logo<br/>institucional</span><span><strong>Reto de Bienestar</strong><small>COOPEBANACIO R.L.</small></span></a>}
+import Image from 'next/image';
+export function Brand(){return <a href="/" className="brand"><Image className="institutional-logo" src="/logo-institucional.png" alt="COOPEBANACIO R.L." width={211} height={65} priority/><span><strong>Reto de Bienestar</strong><small>SEMANA DEL BIENESTAR</small></span></a>}
 export function StateBadge({completed,unlocked}:{completed:boolean;unlocked:boolean}) { const Icon=completed?CircleCheck:unlocked?LockKeyholeOpen:LockKeyhole;return <span className={`badge ${completed?'complete':unlocked?'available':'locked'}`}><Icon size={14}/>{completed?'Completado':unlocked?'Disponible':'Bloqueado'}</span>}
 export function Loading(){return <div className="loading" role="status"><LoaderCircle className="spin"/> Cargando tu experiencia…</div>}
 export function Notice({children,error=false}:{children:ReactNode;error?:boolean}){return <div className={`notice ${error?'error':''}`} role={error?'alert':'status'}>{children}</div>}
