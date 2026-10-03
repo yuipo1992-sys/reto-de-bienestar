@@ -39,6 +39,7 @@ test('SQL integration: enrollment, RLS, locked challenges, bingo, audit and immu
   await as(b);
   await t.test('empty fields, unexpected keys, duplicate submissions and edits denied',async()=>{
    await assert.rejects(submit(pb.participant_id,challenges[0].id,{...response,pet1:' '}),/missing_fields/);
+   await assert.rejects(submit(pb.participant_id,challenges[0].id,{...response,pet1:'\t\n'}),/missing_fields/);
    await assert.rejects(submit(pb.participant_id,challenges[0].id,{...response,extra:'x'}),/invalid_fields/);
    await submit(pb.participant_id,challenges[0].id,response);
    await assert.rejects(submit(pb.participant_id,challenges[0].id,response),/duplicate key/);

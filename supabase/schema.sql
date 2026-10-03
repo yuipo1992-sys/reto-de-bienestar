@@ -112,7 +112,7 @@ begin
  if (select count(*) from jsonb_object_keys(new.response_data))<>expected then raise exception 'invalid_fields'; end if;
  for field in select * from jsonb_array_elements(snap) loop
    k:=field->>'key'; v:=new.response_data->>k;
-   if jsonb_typeof(new.response_data->k) is distinct from 'string' or length(trim(v)) not between 1 and 1000 then raise exception 'missing_fields'; end if;
+   if jsonb_typeof(new.response_data->k) is distinct from 'string' or length(trim(v)) not between 1 and 1000 or regexp_replace(v,'[[:space:]]','','g')='' then raise exception 'missing_fields'; end if;
    if c.day_number=5 then
      normalized:=regexp_replace(lower(extensions.unaccent(trim(v))),'[^a-z0-9]','','g');
      if length(normalized)<2 or normalized=any(names) then raise exception 'duplicate_bingo'; end if;
