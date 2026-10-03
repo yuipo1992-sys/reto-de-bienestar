@@ -1,0 +1,1 @@
+export default function NotFound(){return <main id="main" className="privacy-page panel"><h1>Esta página no está disponible</h1><p>Volvé a tu pantalla principal para continuar.</p><a className="primary" href="/">Volver al inicio</a></main>}
